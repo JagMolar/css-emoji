@@ -1,0 +1,108 @@
+:root{
+    --black: #20184e;
+    --color-cara: #fbd671;
+    --background: #9dfeec;
+    --color-lengua: #f15962;
+    --sombra-cara: -10px -10px 0px 0px rgb(252,181,3);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: var(--background);
+}
+
+/* Como por defecto, nos va a utilizar un content-box, aseguramos
+que el navegador tenga en cuenta los marcos que definamos
+y se ajuste dentro. */
+html {
+    box-sizing: border-box;
+}
+
+/* Y para que lo tengan como referencia los hijos */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* Aseguramos el posicionamiento */
+* {
+    position: absolute;
+}
+
+/* y el de los hijos */
+
+*::before, *::after {
+    content: "";
+    position: absolute;
+}
+
+.emoji {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-cara);
+    box-shadow:inset var(--sombra-cara);
+}
+
+.cara {
+    width: 150px;
+    height: 170px;
+    left: 75px;
+    top: 75px;
+}
+
+.boca {
+    width:100%;
+    height: 75px;
+    bottom: 0;
+    background-color: var(--black);
+    border: 5px solid var(--black);
+    border-radius: 10px 10px 150px 150px;
+    overflow: hidden;
+    &:after {
+        background-color: var(--color-lengua);
+        width: 100px;
+        height: 75px;
+        border-radius: 50%;
+        left:25px;
+        top:30px;
+  }
+}
+
+
+
+.ojos {
+    top:10px;
+    left:0;
+    width: 150px;
+    height: 50px;
+    .ojo {
+        background-color: var(--black);
+        width: 30px;
+        height: 50px;
+        border-radius: 100%;
+        border: 5px solid var(--black);
+        &:after {
+            width: 10px;
+            height: 15px;
+            top: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+    }
+    &.ojo-izq {
+        left:15px;
+    }
+    &.ojo-der {
+        right:15px;
+    }
+  }  
+}
